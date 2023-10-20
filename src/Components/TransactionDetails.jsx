@@ -4,7 +4,7 @@ const API = import.meta.env.VITE_BASE_URL;
 
 function TransactionDetails() {
   const [transaction, setTransaction] = useState([]);
-  let { index } = useParms();
+  let { index } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
