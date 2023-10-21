@@ -41,7 +41,27 @@ function TransactionDetails() {
         {transaction.url}
       </h5>
       <h6>{transaction.category}</h6>
-      <p>{}</p>
+      <p>{transaction.description}</p>
+      <div className="showNavigation">
+        <div>
+          {" "}
+          <Link to={`/transactions`}>
+            <button>Back</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <Link to={`/transactions/${index}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      </div>
     </article>
   );
 }
+
+export default TransactionDetails;
