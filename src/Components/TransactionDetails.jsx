@@ -31,7 +31,7 @@ function TransactionDetails() {
   return (
     <article>
       <h3>
-        {transaction.isFavorite ? <span>🤑</span> : null} {transaction.name}
+        {transaction.name ? <span>🤑</span> : null} {transaction.name}
       </h3>
       <h5>
         <span>

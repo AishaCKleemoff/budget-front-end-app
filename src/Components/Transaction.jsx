@@ -4,14 +4,14 @@ function Transaction({ transaction, index }) {
   return (
     <tr>
       <td>
-        {transaction.isFavorite ? (
+        {transaction.name ? (
           <span>💵💰</span>
         ) : (
           <span>&nbsp; &nbsp; &nbsp;</span>
         )}
       </td>
       <td style={{ cursor: "alias" }}>
-        <a href={transaction.url} target="_blank" rel="noreferrer">
+        <a href={transaction.name} target="_blank" rel="noreferrer">
           {transaction.name}
         </a>
       </td>

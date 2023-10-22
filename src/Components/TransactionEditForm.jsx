@@ -8,7 +8,7 @@ function TransactionEditForm() {
 
   const [transaction, setTransaction] = useState({
     item_name: "",
-    amount: ,
+    amount: 0,
     date: "",
     from: "",
     category: "",
@@ -20,29 +20,28 @@ function TransactionEditForm() {
 
   useEffect(() => {
     fetch(`${API}/transactions/${index}`)
-      .then(response => response.json())
-      .then(transaction => {
-        setTransaction(transaction)
+      .then((response) => response.json())
+      .then((transaction) => {
+        setTransaction(transaction);
       })
-      .catch(() => navigate("/not-found"))
+      .catch(() => navigate("/not-found"));
   }, [index, navigate]);
 
   const updateTransaction = () => {
-
     const httpOptions = {
-      "method": PUT,
-      "body": JSON.stringify(transaction),
-      "headers": {
-        "Content-type" : "application/json"
-      }
-    }
+      method: PUT,
+      body: JSON.stringify(transaction),
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
     fetch(`${API}/transactions/${index}`, httpOptions)
       .then(() => {
         alert(`${tranaction.name} has been updated!`);
-        navigate(`/transactions/${index}`)
+        navigate(`/transactions/${index}`);
       })
-      .catch((err) => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     updateTransaction();
@@ -70,8 +69,8 @@ function TransactionEditForm() {
         <label htmlFor="amount">Amount:</label>
         <input
           id="amount"
-          type="text"
-          name="category"
+          type="number"
+          name="amount"
           value={transaction.category}
           placeholder="savings, shopping, ..."
           onChange={handleTextChange}
@@ -85,7 +84,7 @@ function TransactionEditForm() {
           placeholder="..."
           onChange={handleTextChange}
         />
-        
+
         <label htmlFor="from">From:</label>
         <input
           id="from"
